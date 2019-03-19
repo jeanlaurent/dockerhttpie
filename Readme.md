@@ -2,12 +2,9 @@
 
 just `docker run -ti jeanlaurent/httpie`
 
-Example
+Basic get example
 ```
-host> docker run -ti jeanlaurent/httpie
-httpie version
-0.9.3
-/ # http https://serpodile.com --headers
+host> docker run -ti jeanlaurent/httpie get https://serpodile.com --headers
 HTTP/1.1 200 OK
 Connection: keep-alive
 Content-Encoding: gzip
@@ -19,6 +16,11 @@ Transfer-Encoding: chunked
 
 / # exit
 host>
+```
+
+More Complex example
+```
+host> docker run -ti -v $(pwd):/workdir jeanlaurent/httpie post https://serpodile.com/dummy < payload.json
 ```
 
 # build
