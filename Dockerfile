@@ -1,8 +1,7 @@
-FROM alpine:latest
-MAINTAINER Jean-Laurent de Morlhon <jeanlaurent@morlhon.net>
+FROM alpine:3.9.2
+LABEL maintainer="Jean-Laurent de Morlhon <jeanlaurent@morlhon.net>"
 
-RUN apk add --update python py-pip ca-certificates
-RUN pip install --upgrade pip setuptools
-RUN pip install --upgrade httpie
+RUN apk add --no-cache --update python py-pip ca-certificates
+RUN pip install --upgrade pip setuptools httpie
 
 CMD echo "httpie version" && $(http --version) && sh
